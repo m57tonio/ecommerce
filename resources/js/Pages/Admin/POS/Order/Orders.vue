@@ -1,7 +1,7 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { router } from "@inertiajs/vue3";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 import Button from "primevue/button";
 import Calendar from "primevue/calendar";
@@ -599,7 +599,7 @@ function editDraft(order) {
                             </div>
                             <div class="text-right">
                                 <div class="text-sm font-bold text-emerald-600">{{ Number(item.total_amount).toFixed(2)
-                                }}</div>
+                                    }}</div>
                             </div>
                         </div>
                         <div v-if="!insights.top_products?.length"
@@ -626,7 +626,7 @@ function editDraft(order) {
                             </div>
                             <div class="text-right">
                                 <div class="text-sm font-bold text-emerald-600">{{ Number(item.total_amount).toFixed(2)
-                                }}</div>
+                                    }}</div>
                             </div>
                         </div>
                         <div v-if="!insights.brand_sales?.length"
@@ -688,10 +688,10 @@ function editDraft(order) {
                             <div class="flex flex-col">
                                 <span class="font-semibold text-slate-800">{{
                                     invoiceLabel(data)
-                                }}</span>
+                                    }}</span>
                                 <span class="text-xs text-slate-500">{{
                                     new Date(data.created_at).toLocaleString()
-                                }}</span>
+                                    }}</span>
                             </div>
                         </template>
                     </Column>
@@ -699,7 +699,7 @@ function editDraft(order) {
                     <Column header="Customer">
                         <template #body="{ data }">{{
                             data.customer?.name || "Walk-in"
-                        }}</template>
+                            }}</template>
                     </Column>
 
                     <Column header="Categories">
@@ -711,14 +711,14 @@ function editDraft(order) {
                     <Column header="Cashier">
                         <template #body="{ data }">{{
                             data.user?.name || "-"
-                        }}</template>
+                            }}</template>
                     </Column>
 
                     <Column header="Total">
                         <template #body="{ data }">
                             <span class="font-semibold text-emerald-600">{{
                                 Number(data.total_amount || 0).toFixed(2)
-                            }}</span>
+                                }}</span>
                         </template>
                     </Column>
 
